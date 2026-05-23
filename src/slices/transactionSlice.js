@@ -7,7 +7,7 @@ const initialState = {
 const transactionSlice = createSlice ({
     name : "transaction",
     initialState,
-    reducer : {
+    reducers : {
         addTransaction : (state,action) => {
             state.transactions.unshift(action.payload);
         },
@@ -22,5 +22,5 @@ const transactionSlice = createSlice ({
 
 }
 )
-export const {addTransaction , deleteTransaction} = transactionSlice.action
+export const {addTransaction , deleteTransaction} = transactionSlice.actions
 export default transactionSlice.reducer 
