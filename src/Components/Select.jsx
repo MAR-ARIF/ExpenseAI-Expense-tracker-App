@@ -10,7 +10,7 @@ const Select = forwardRef(function Select({
     const id = useId();
 
     return (
-        <div className="w-full">
+        <div className="w-full mb-4">
             {label && <label
             htmlFor={id}
             className="block mb-1 pl-1 font-medium text-md text-gray-900">
