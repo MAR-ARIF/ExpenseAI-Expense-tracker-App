@@ -43,5 +43,20 @@ export class DatabaseService{
             
         }
     }
+    async deleteExpense(id){
+        try {
+            return await this.database.deleteDocument(
+                conf.appwriteDatabaseId,
+                conf.appwriteCollectionId,
+                id
+            )
+            
+        } catch (error) {
+            console.log("Errors in deleteExpense in database.js: " , error);
+            
+        }
+    }
 
 }
+const databaseService = new DatabaseService();
+export default databaseService;
