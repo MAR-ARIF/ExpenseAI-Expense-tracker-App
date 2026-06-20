@@ -42,7 +42,7 @@ function AddExpenseForm(){
             />
             <Input label="Amount" placeholder="0.00" {...register("amount" , {required: true})}/>
             <Input label="Date" placeholder="e.g. 1st January" {...register("date" , {required: true})}/>
-            <Button type="submit" children="Add Expense" className="bg-indigo-500 text-white text-md w-full border-none rounded-xl mt-4 hover:scale-102 active:scale-100 hover:shadow-md transition-all duration-200 font-semibold" />
+            <Button type="submit" children="Add Expense" />
 
 
         </form>
