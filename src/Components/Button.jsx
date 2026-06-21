@@ -5,7 +5,7 @@ function Button ({
     ...props
 }){
     return (
-        <button className={`px-2 py-2 bg-indigo-500 text-white text-md w-full border-none rounded-xl mt-4 hover:scale-102 active:scale-100 hover:shadow-md transition-all duration-200 font-semibold ${className}`} {...props} type={type}>
+        <button className={`px-2 py-2 bg-indigo-500 text-white text-md border-none rounded-xl mt-4 hover:scale-102 active:scale-100 hover:shadow-md transition-all duration-200 font-semibold ${className}`} {...props} type={type}>
             {children}
         </button>
     )
