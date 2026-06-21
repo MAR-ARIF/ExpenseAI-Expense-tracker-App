@@ -29,13 +29,14 @@ export class AuthService{
             return await this.account.createEmailPasswordSession(email,password);
             
         } catch (error) {
-            console.log("Error in login in auth.js: ",error)
+            console.log("Error in login in auth.js: ",error);
+            throw error;
             
         }
     }
     async logout(){
         try {
-            return await this.account.deleteSession(); 
+            return await this.account.deleteSessions(); 
             
         } catch (error) {
             console.log("Error in logout in auth.js: ", error);
