@@ -41,7 +41,7 @@ function SignUpForm(){
 
     }
     return(
-        <form onSubmit={handleSubmit(submit)} className="w-80 md:w-120 mx-auto border-2 border-gray-200 shadow-sm rounded-2xl px-6 py-6" >
+        <form onSubmit={handleSubmit(submit)} className="w-80 md:w-95 mx-auto border-2 border-gray-200 shadow-sm rounded-2xl px-6 py-6" >
             <Input
             label="Full Name"
             placeholder="Enter your full name"
@@ -85,6 +85,7 @@ function SignUpForm(){
             <Button 
             type="submit"
             children="Create Account"
+            className="w-full"
             />
             
         
