@@ -1,18 +1,23 @@
-import { useEffect, useState } from "react";
+import { useEffect} from "react";
 import TransactionItem from "./TransactionItem";
 import databaseService from "../appwrite/database";
+import { useDispatch, useSelector } from "react-redux";
+import { setTransaction } from "../slices/transactionSlice";
+
 
 
 function TransactionList(){
-    const [expenses , setExpenses] = useState([]);
+    const dispatch = useDispatch();
+    const expenses = useSelector((state) => state.transaction.transactions);
 
     useEffect(() => { 
-        databaseService.getAllExpenses().then((expenses)=> {
-            if(expenses) setExpenses(expenses.documents);
+        databaseService.getAllExpenses().then((result)=> {
+            if(result) dispatch(setTransaction(result.documents));
         })
     },[]);
     return(
-        <div className="max-w-5xl mx-auto bg-white border border-gray-400 rounded-lg mt-10">
+        <div className="max-w-5xl mx-auto bg-white border border-gray-400 rounded-xl mt-10">
+            <h1 className="text-2xl m-4 font-semibold">Recent Transactions</h1>
             {expenses.map((expense) => (
                 <div key={expense.$id}>
                     <TransactionItem  {...expense}/>
