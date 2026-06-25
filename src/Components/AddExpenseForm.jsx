@@ -6,8 +6,11 @@ import { useForm } from "react-hook-form";
 import Select from "./Select";
 import Button from "./Button";
 import TransactionList from "./TransactionList";
+import { useState } from "react";
 
 function AddExpenseForm({onSuccess}){
+
+    const[error , setError] = useState("")
 
     const dispatch = useDispatch();
     const userData = useSelector((state) => state.auth.userData);
@@ -34,7 +37,7 @@ function AddExpenseForm({onSuccess}){
             }
             
         } catch (error) {
-            console.log(error);
+            setError(error.message);
             
         }
 
@@ -56,10 +59,14 @@ function AddExpenseForm({onSuccess}){
             {...register("category", {required:true})}
             />
             <Input label="Amount" placeholder="0.00" {...register("amount" , {required: true})}/>
-            <Input label="Date" placeholder="e.g. 1st January" {...register("date" , {required: true})}/>
+            <Input label="Date" type="date" placeholder="e.g. 1st January" {...register("date" , {required: true})}/>
             <Button type="submit" children="Add Expense" className="w-full" />
 
-
+            {error && (
+                <p className="text-red-500 text-sm mt-4">
+                    {error}
+                </p>
+            )}
         </form>
     )
 }
