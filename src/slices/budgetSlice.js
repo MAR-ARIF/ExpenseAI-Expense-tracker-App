@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit"
 
 
 const initialState = {
-    budget : null
+    budget : JSON.parse(localStorage.getItem("budget")) || 0
 }
 const budgetSlice = createSlice ({
     name : "budget",
