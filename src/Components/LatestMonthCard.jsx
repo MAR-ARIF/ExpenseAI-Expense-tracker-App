@@ -1,29 +1,11 @@
 import { useMemo } from "react";
 import { useSelector } from "react-redux"
 import Card from "./Card";
+import { selectMonthlyExpense } from "./selectors/expenseSelector";
 
 function LatestMonthCard(){
     const transactions = useSelector((state) => state.transaction.transactions);
-    const monthlyExpense = useMemo(() => {
-        
-        const now = new Date();
-        const month = now.getMonth();
-        const year = now.getFullYear();
-
-        let total = 0;
-        transactions.forEach((t) => {
-            const date = new Date(t.date);
-            const transactionMonth = date.getMonth();
-            const transactionYear = date.getFullYear();
-
-            if (month == transactionMonth && year == transactionYear) {
-                total += Number(t.amount);
-            }
-
-        })
-        return total;
-
-    },[transactions])
+    const monthlyExpense = selectMonthlyExpense(transactions);
     
     
 
