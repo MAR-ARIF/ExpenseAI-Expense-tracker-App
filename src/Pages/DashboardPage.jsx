@@ -28,14 +28,14 @@ function DashboardPage(){
     return (
         <div className="py-8">
             <Container>
-                <div className="flex justify-center gap-4 mb-5">
+                <div className="flex flex-col md:flex-row justify-center items-center gap-4 mb-5">
                     <LatestMonthCard />
                     <BudgetCard />
                     <NumOfTranCard />
                 </div>
                 <ExpenseAreaChart  data={chartData}/>
                 <TransactionList />
-                <div className="flex items-center justify-between  gap-4">
+                <div className="flex flex-col md:flex-row items-center justify-between  gap-4">
                     <div className="flex-1 mt-4">
                         <Button onClick={click} children="+ Add Transaction" className="w-full py-4 mx-auto px-10 text-xl" />
                     </div>
