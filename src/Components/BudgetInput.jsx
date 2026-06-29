@@ -18,14 +18,14 @@ function BudgetInput(){
     }
 
     return (
-        <div className="flex gap-4 max-w-100">
+        <div className="flex gap-4 w-full mt-5">
         <Input label="Monthly Budget(£)" 
         type="number"
         value={budgetAmount} 
         onChange={(e) => setBudgetAmount(e.target.value)}
-        
+        className="h-13"
         />
-        <Button children="Save" className="px-6 py-0 h-11 mt-7" onClick={click} />
+        <Button children="Save" className="px-6 py-0 h-13 mt-7" onClick={click} />
         
         </div>
     )
