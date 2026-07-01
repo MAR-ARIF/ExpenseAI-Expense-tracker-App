@@ -6,9 +6,12 @@ import { setTransaction } from "../slices/transactionSlice";
 
 
 
-function TransactionList(){
+function TransactionList({hideHeader , category}){
     const dispatch = useDispatch();
     const expenses = useSelector((state) => state.transaction.transactions);
+    const expByCategory = expenses.filter((expense) => {
+        return category === expense.category;
+    })
 
     useEffect(() => { 
         databaseService.getAllExpenses().then((result)=> {
@@ -17,12 +20,22 @@ function TransactionList(){
     },[]);
     return(
         <div className=" mx-auto bg-white border border-gray-200 rounded-xl mt-5">
-            <h1 className="text-2xl m-4 font-semibold">Recent Transactions</h1>
-            {expenses.map((expense) => (
-                <div key={expense.$id}>
-                    <TransactionItem  {...expense}/>
-                </div>
-            ))}
+            { hideHeader ? "" : <h1 className="text-2xl m-4 font-semibold">Recent Transactions</h1>}
+            {category && category != "All" ? 
+                expByCategory.length === 0 ? <p className="text-center text-gray-600 mt-10 mb-10">No transactions yet</p> :
+                    expByCategory.map((expense) => (
+                    <div key={expense.$id} >
+                        <TransactionItem {...expense}  /> 
+                        
+                    </div>
+                    ))
+            :   expenses.length === 0 ?  <p className="text-center text-gray-600 mt-10 mb-10">No transactions yet</p> :
+                expenses.map((expense) => (
+                    <div key={expense.$id}>
+                        <TransactionItem  {...expense}/>
+                    </div>
+                )) 
+            }
         </div>
     )
 
