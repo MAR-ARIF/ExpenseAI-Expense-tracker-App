@@ -71,6 +71,7 @@ function AnalyticsPage(){
     return(
         <div className="py-8">
             <Container>
+                <h1 className="text-2xl font-semibold mb-6">Analyticss</h1>
                 <div className="flex flex-col md:flex-row justify-center items-center gap-4 mb-5">
                     <TopCategoryCard />
                     <AvgMonthlyCard />
