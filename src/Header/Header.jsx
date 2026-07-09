@@ -9,7 +9,7 @@ function Header(){
     const authStatus = useSelector((state) => state.auth.status);
     const className = "h-5 w-5"
     const navItems = [
-        {name: "Dashboard" , path: "/" , active : true , icon: <LayoutDashboard className={className}/> },
+        {name: "Dashboard" , path: "/" , active : authStatus , icon: <LayoutDashboard className={className}/> },
         {name : "Transactions" , path: "/transactions" , active : authStatus , icon : <List className={className}/> },
         {name : "Analytics" , path: "/analytics" , active : authStatus , icon : <ChartColumn className={className}/>},
         {name : "Insights" , path: "/ai-insights" , active : authStatus , icon : <Sparkles className={className}/>},
