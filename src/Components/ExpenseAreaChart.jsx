@@ -1,3 +1,5 @@
+import { ChevronRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import {
   Area,
   AreaChart,
@@ -9,11 +11,26 @@ import {
 } from "recharts";
 
 function ExpenseAreaChart({ data }) {
+  const navigate = useNavigate()
   return (
     <div className="bg-white p-4 border border-gray-200 rounded-xl">
-      <h1 className="text-2xl m-4 font-semibold">
-        Spending By Category
-      </h1>
+      <div className="flex justify-between">
+        <h1 className="text-2xl m-4 font-semibold">
+          Spending By Category
+        </h1>
+        <button 
+        className="text-indigo-500 cursor-pointer group items-center text-sm font-medium flex"
+        onClick={() => navigate("/analytics")}
+        >
+          <span>
+          Full analytics
+          <span className="block w-20 h-px scale-x-0 duration-300 group-hover:scale-x-100 bg-indigo-500 transition-transform origin-left"></span>
+          </span>
+          
+          <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 duration-300 transition-transform"/>
+          </button>
+
+      </div>
 
       <ResponsiveContainer width="100%" height={200}>
         <AreaChart data={data}>
