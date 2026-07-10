@@ -13,8 +13,8 @@ function Header(){
         {name : "Transactions" , path: "/transactions" , active : authStatus , icon : <List className={className}/> },
         {name : "Analytics" , path: "/analytics" , active : authStatus , icon : <ChartColumn className={className}/>},
         {name : "Insights" , path: "/ai-insights" , active : authStatus , icon : <Sparkles className={className}/>},
-        {name : "SignUp" , path: "/signup" , active : !authStatus , icon : <UserPlus className={className}/>},
-        {name: "Login" , path: "/login" , active : !authStatus , icon: <LogIn className={className}/>}
+        //{name : "SignUp" , path: "/signup" , active : !authStatus , icon : <UserPlus className={className}/>},
+        //{name: "Login" , path: "/login" , active : !authStatus , icon: <LogIn className={className}/>}
     ]
     return (
         <header className="w-full bg-white/95 border-b border-gray-200 py-1.5"> 
