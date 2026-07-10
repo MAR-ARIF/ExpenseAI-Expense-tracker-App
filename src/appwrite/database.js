@@ -27,6 +27,7 @@ export class DatabaseService{
             
         } catch (error) {
             console.log("Error in create expense in database.js: " ,error)
+            throw error;
             
         }
 
@@ -36,7 +37,8 @@ export class DatabaseService{
             return await this.database.listDocuments(
                 conf.appwriteDatabaseId,
                 conf.appwriteCollectionId,
-                [Query.orderDesc("$createdAt")]
+                [Query.orderDesc("$createdAt")],
+                
             )
             
         } catch (error) {
