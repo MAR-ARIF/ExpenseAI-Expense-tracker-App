@@ -1,5 +1,5 @@
 
-import { Outlet } from "react-router-dom"
+import { Outlet, useLocation } from "react-router-dom"
 import Header from "./Header/Header"
 import { useEffect, useState } from "react"
 import authService from "./appwrite/auth"
@@ -9,9 +9,13 @@ import { login, logout } from "./slices/authSlice"
 
 
 
+
 function App() {
   const [loading , setLoading] = useState(true);
   const dispatch = useDispatch();
+  const location = useLocation();
+  const isSignUpOrLogInPage = location.pathname === "/login" || location.pathname === "/signup";
+
   useEffect(() => {
     authService.getUser().then((userData) => {
       if (userData){
@@ -26,8 +30,8 @@ function App() {
 
   return !loading ?  (
     <div className="bg-slate-100 min-h-screen">
-    
-      <Header />
+      
+      {!isSignUpOrLogInPage && <Header /> }
       <Outlet />
 
     </div>
