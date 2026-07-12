@@ -17,12 +17,15 @@ function TransactionList({hideHeader , category}){
     const expByCategory = expenses.filter((expense) => {
         return category === expense.category;
     })
+    const userData = useSelector((state) => state.auth.userData)
 
     useEffect(() => { 
-        databaseService.getAllExpenses().then((result)=> {
+        databaseService.getAllExpenses(userData.$id).then((result)=> {
+            console.log(result)
             if(result) dispatch(setTransaction(result.documents));
         })
     },[]);
+
     return( 
         <div className=" mx-auto bg-white border border-gray-200 rounded-xl mt-5">
             { hideHeader ? "" : 
