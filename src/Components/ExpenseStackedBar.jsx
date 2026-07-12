@@ -1,3 +1,4 @@
+import { ChartColumnStacked } from "lucide-react";
 import {
     ResponsiveContainer,
     BarChart,
@@ -9,8 +10,28 @@ import {
     Legend,
 } from "recharts";
 
-function ExpenseStackedBar({ data }) {
-    return (
+function ExpenseStackedBar({ data ,isNoTransaction = false }) {
+    return isNoTransaction ?
+    <div className="bg-white p-4 border border-gray-200 rounded-xl">
+      <div className="h-72 flex flex-col items-center justify-center">
+        <ChartColumnStacked className="w-16 h-16 text-gray-400 mb-4" />
+
+        <p className="font-semibold">
+            No spending data
+        </p>
+
+        <p className="text-gray-500 text-sm">
+            Your charts will appear here.
+        </p>
+      </div>
+
+    </div>
+    
+    
+    
+    
+    :
+    (
         <div className="bg-white border border-gray-200 rounded-xl p-5 mt-5">
             <h2 className="text-xl font-semibold mb-4">
                 Spending by Month
