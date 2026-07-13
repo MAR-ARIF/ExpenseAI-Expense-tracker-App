@@ -32,12 +32,15 @@ export class DatabaseService{
         }
 
     }
-    async getAllExpenses(){
+    async getAllExpenses(userId){
         try {
             return await this.database.listDocuments(
                 conf.appwriteDatabaseId,
                 conf.appwriteCollectionId,
-                [Query.orderDesc("$createdAt")],
+                [
+                    Query.orderDesc("$createdAt"),
+                    Query.equal("userId" , userId)
+                ]
                 
             )
             
