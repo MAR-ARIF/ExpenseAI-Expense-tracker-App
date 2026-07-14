@@ -53,30 +53,27 @@ function Header(){
            
                         
             </Container>
-            <div className="md:hidden w-full z-50 border-t border-gray-200  fixed bottom-0 bg-white/95 ">
-                <Container>    
-                    <ul className="flex items-center justify-center mt-3 mb-3 text-gray-500 font-semibold gap-4 max-w-xs mx-auto">
-                        {navItems.map((item) => 
-                            item.active ? (
-                                <li key={item.name}>
-                                    <NavLink 
-                                    to={item.path}
-                                    className={({isActive}) => 
-                                        `flex flex-col items-center px-3 py-1 text-sm rounded-xl ${ isActive ? 
-                                            `bg-indigo-100 text-indigo-500` : `hover:bg-gray-100`
-                                        }` 
-                                    }
-                                    >
-                                        {item.icon} 
-                                        {item.name}
-                                    </NavLink>
-                                </li>
-                            ) : null
-                        )}
-                    </ul>
-                </Container>
-
-            </div>        
+            <div className="md:hidden w-full z-50 fixed bottom-4 left-0 right-0 flex justify-center">
+    <ul className="flex items-center bg-white border border-gray-200 rounded-2xl shadow-md px-4 py-2 text-gray-500 font-semibold gap-2">
+        {navItems.map((item) =>
+            item.active ? (
+                <li key={item.name}>
+                    <NavLink
+                        to={item.path}
+                        className={({ isActive }) =>
+                            `flex flex-col items-center px-3 py-1 text-sm rounded-xl ${
+                                isActive ? 'bg-indigo-100 text-indigo-500' : 'hover:bg-gray-100'
+                            }`
+                        }
+                    >
+                        {item.icon}
+                        {item.name}
+                    </NavLink>
+                </li>
+            ) : null
+        )}
+    </ul>
+</div>
            
         
         </div>
