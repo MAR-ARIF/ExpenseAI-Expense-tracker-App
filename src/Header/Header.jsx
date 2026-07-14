@@ -55,7 +55,7 @@ function Header(){
             </Container>
             <div className="md:hidden w-full z-50 border-t border-gray-200  fixed bottom-0 bg-white/95 ">
                 <Container>    
-                    <ul className="flex items-center justify-center mt-3 mb-3 text-gray-500 font-semibold gap-4 max-w-sm mx-auto">
+                    <ul className="flex items-center justify-center mt-3 mb-3 text-gray-500 font-semibold gap-4 max-w-xs mx-auto">
                         {navItems.map((item) => 
                             item.active ? (
                                 <li key={item.name}>
