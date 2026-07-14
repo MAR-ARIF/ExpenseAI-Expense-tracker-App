@@ -58,7 +58,7 @@ function DashboardPage(){
                         </p>
                     }
                 </div>
-                <div className="flex flex-col md:flex-row justify-center items-center gap-4 mb-5">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-5">
                     <LatestMonthCard />
                     <BudgetCard />
                     <NumOfTranCard />
