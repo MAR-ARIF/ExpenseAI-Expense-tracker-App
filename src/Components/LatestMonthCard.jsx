@@ -5,7 +5,7 @@ import { selectMonthlyExpense } from "./selectors/expenseSelector";
 
 function LatestMonthCard(){
     const transactions = useSelector((state) => state.transaction.transactions);
-    const monthlyExpense = selectMonthlyExpense(transactions);
+    const monthlyExpense = Number(selectMonthlyExpense(transactions));
     
     
 
